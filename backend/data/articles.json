@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "SpaceX just landed a skyscraper from space",
+    "rawContent": "SpaceX's Starship rocket just pulled off a 'belly flop' and landed perfectly. This is the biggest rocket ever built, designed to take humans to Mars. Landing it means we can reuse it, making space travel way cheaper.",
+    "category": "Tech",
+    "why": "We're basically turning rockets into airplanes. If we can reuse them, the cost of going to space drops from 'billions' to 'millions'.",
+    "takeaway": "Reusable rockets = Space for everyone.",
+    "analogy": "Imagine if you had to throw away a whole 747 airplane every time you flew across the country. That's how we used to do space. Now, we just refuel and go again.",
+    "publishedDate": "2026-05-01T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "The stock market is finally chilling out",
+    "rawContent": "Inflation is finally slowing down, which means prices aren't jumping as fast. Investors are happy because it means the Fed might stop raising interest rates soon, making it cheaper to borrow money for houses and cars.",
+    "category": "Finance",
+    "why": "When borrowing money gets cheaper, companies grow faster and people spend more, which usually makes the economy feel a lot better.",
+    "takeaway": "Lower inflation = More breathing room for your wallet.",
+    "analogy": "It's like the economy had a high fever for two years. This news is the first sign that the fever is finally breaking.",
+    "publishedDate": "2026-05-01T09:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "50 countries just promised to quit 'dirty' energy",
+    "rawContent": "A massive group of nations just signed a deal to slash carbon emissions. They aren't just talking this time; there are real fines if they don't hit their targets. It's a huge push toward solar and wind power.",
+    "category": "World",
+    "why": "This is the first time countries are actually putting their money where their mouth is regarding climate change. Fines make it real.",
+    "takeaway": "Climate action just got some actual teeth.",
+    "analogy": "It's like the whole class finally agreed to stop throwing trash on the floor, and now there's a teacher who will actually give out detention if you do.",
+    "publishedDate": "2026-05-01T08:30:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Apple's new glasses want to replace your phone",
+    "rawContent": "Apple just showed off new AR glasses that look like regular spectacles. They overlay your texts and maps right on the real world. They're betting that in five years, you won't even want to look at a handheld screen.",
+    "category": "Tech",
+    "why": "If this works, the 'smartphone era' is officially over. We'll be interacting with the digital world while keeping our heads up.",
+    "takeaway": "The screen is moving from your pocket to your face.",
+    "analogy": "It's like having a floating transparent iPad that only you can see, following you around all day.",
+    "publishedDate": "2026-05-01T07:45:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Tesla's Berlin factory is going massive",
+    "rawContent": "Tesla is doubling the size of its factory in Germany. They want to churn out millions of EVs specifically for Europe. It's a direct challenge to big German brands like VW and BMW on their home turf.",
+    "category": "Business",
+    "why": "Tesla isn't just a California company anymore; they're becoming a local powerhouse in Europe, forcing everyone else to speed up.",
+    "takeaway": "The electric car race just hit 'Ludicrous Mode' in Europe.",
+    "analogy": "It's like the new kid in school just built the biggest lemonade stand right across from the principal's office.",
+    "publishedDate": "2026-05-01T11:00:00Z"
+  }
+]
