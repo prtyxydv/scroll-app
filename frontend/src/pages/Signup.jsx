@@ -7,17 +7,28 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+
     try {
       const { data } = await api.post('/auth/signup', { email, password });
       login(data);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.message || 'Signup failed');
+      console.error(err);
+      if (!err.response) {
+        setError('Cannot reach server. It might be waking up, please try again in 30 seconds.');
+      } else {
+        setError(err.response?.data?.message || 'Registration failed');
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -26,44 +37,53 @@ const Signup = () => {
       <div className="w-full max-w-[400px] bg-app-bg p-8 rounded-[2rem] shadow-2xl border border-zinc-800/50 space-y-8">
         
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-serif font-bold text-white tracking-tight">Join Scroll.</h1>
-          <p className="text-zinc-500 text-sm font-medium">Create an account to save stories.</p>
+          <h1 className="text-4xl font-serif font-bold text-white tracking-tight leading-none">Join Scroll.</h1>
+          <p className="text-zinc-500 text-sm font-medium pt-2">Create an account to save stories.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {error && <p className="text-red-400 bg-red-400/10 p-3 rounded-xl text-sm text-center font-medium border border-red-400/20">{error}</p>}
+          {error && (
+            <div className="text-red-400 bg-red-400/10 p-4 rounded-2xl text-xs font-bold border border-red-400/20 leading-relaxed animate-in fade-in zoom-in duration-300">
+              {error}
+            </div>
+          )}
           
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-zinc-400 uppercase tracking-wider ml-1">Email</label>
+            <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em] ml-1">Identity</label>
             <input
               type="email"
-              placeholder="hello@example.com"
-              className="w-full p-4 rounded-xl bg-app-card border border-zinc-800 text-white focus:border-app-accent focus:ring-1 focus:ring-app-accent outline-none transition-all placeholder:text-zinc-600"
+              placeholder="Email address"
+              className="w-full p-4 rounded-2xl bg-app-card border border-zinc-800 text-white focus:border-app-accent focus:ring-1 focus:ring-app-accent outline-none transition-all placeholder:text-zinc-700"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-zinc-400 uppercase tracking-wider ml-1">Password</label>
+            <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em] ml-1">Security Key</label>
             <input
               type="password"
               placeholder="••••••••"
-              className="w-full p-4 rounded-xl bg-app-card border border-zinc-800 text-white focus:border-app-accent focus:ring-1 focus:ring-app-accent outline-none transition-all placeholder:text-zinc-600"
+              className="w-full p-4 rounded-2xl bg-app-card border border-zinc-800 text-white focus:border-app-accent focus:ring-1 focus:ring-app-accent outline-none transition-all placeholder:text-zinc-700"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
 
-          <button className="w-full p-4 mt-2 bg-app-accent hover:bg-blue-400 text-white font-bold rounded-xl shadow-lg shadow-app-accent/20 transition-all active:scale-[0.98]">
-            Create Account
+          <button 
+            disabled={loading}
+            className={`w-full p-5 mt-2 bg-app-accent hover:bg-blue-400 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl shadow-xl shadow-app-accent/20 transition-all active:scale-[0.98] ${loading ? 'opacity-50' : ''}`}
+          >
+            {loading ? 'Connecting...' : 'Create Account'}
           </button>
         </form>
 
-        <p className="text-center text-zinc-500 text-sm">
-          Already have an account? <Link to="/login" className="text-white font-medium hover:underline">Log in</Link>
+        <p className="text-center text-zinc-500 text-xs font-bold uppercase tracking-widest">
+          Already a member? <Link to="/login" className="text-white hover:underline ml-1">Log in</Link>
         </p>
       </div>
     </div>
